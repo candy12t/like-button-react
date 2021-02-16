@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import {FC, useState} from 'react';
 import './App.css';
 
-function App() {
+const App: FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <LikeButton />
       </header>
     </div>
   );
 }
 
+const LikeButton: FC = () => {
+  const [count, setCount] =useState(999);
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+  return (<span className="likeButton" onClick={handleClick}>like {count}</span>);
+}
 export default App;
